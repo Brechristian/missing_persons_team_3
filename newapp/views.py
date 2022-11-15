@@ -195,3 +195,27 @@ missing_persons_list = {
         "race": "M"
     }
 }
+
+
+def indexPageView(request):
+    context = {
+        "missings_persons": missing_persons_list.values
+    }
+    return render(request, 'newapp/index.html', context)
+
+
+def aboutPageView(request):
+    return render(request, "newapp/about.html")
+
+
+def missing_personsPageView(request, missing_persons_id):
+    # find a missing person from the missing persons id
+    missing_persons = missing_persons_list[missing_persons_id]
+
+    # create a context dictionary
+    context = {
+        "missing_persons": missing_persons
+    }
+
+    # render out html template
+    return render(request, "newapp/missing_persons.html", context)
