@@ -7,6 +7,31 @@
     <title>Utah Missing Persons</title>
   </head>
   <body>
-    placeholder.
+    <h1>Utah Missing Persons</h1>
+    <div class="container">
+      <div class="row">
+        {% for missing_person in missing_persons %}
+        <div class="col">
+          <div class="card" style="width: 18rem">
+            <img
+              src="{{ book.image }}"
+              class="card-img-top"
+              alt="{{ book.title }}"
+            />
+
+            <div class="card-body">
+              <h5 class="card-title">{{ missing_persons.first_name }}</h5>
+              <p class="card-text">By: {{ missing_persons.date_missing }}</p>
+              <a
+                href="{% url 'missing_persons_detailed' missing_persons_id=missing_persons.id %}"
+                class="btn btn-primary"
+                >Learn More</a
+              >
+            </div>
+          </div>
+        </div>
+        {% endfor %}
+      </div>
+    </div>
   </body>
 </html>
