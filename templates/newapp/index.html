@@ -15,13 +15,28 @@
   </head>
   <body>
     <h1>Utah Missing Persons</h1>
-    <div class="card" style="width: 18rem">
-      <div class="card-header">Featured</div>
-      <ul class="list-group list-group-flush">
-        <li class="list-group-item">Cras justo odio</li>
-        <li class="list-group-item">Dapibus ac facilisis in</li>
-        <li class="list-group-item">Vestibulum at eros</li>
-      </ul>
+    <div class="container">
+      <div class="row">
+        {% for missing_person in missing_persons %}
+        <div class="col">
+          <div class="card" style="width: 18rem">
+            <div class="card -body">
+              <h5 class="card-title">
+                {{ missing_person.first_name }} {{ missing_person.last_name}}
+              </h5>
+              <p class="card-text">
+                Date Missing: {{ missing_person.date_missing }}
+              </p>
+              <a
+                href="{% url 'missing_person_details' missing_person_id=missing_person.id %}"
+                class="btn btn-primary"
+                >More Info</a
+              >
+            </div>
+          </div>
+        </div>
+        {% endfor %}
+      </div>
     </div>
   </body>
 </html>

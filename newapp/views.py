@@ -2,7 +2,7 @@ from django.shortcuts import render
 
 # Create your views here.
 
-missing_persons_list = {
+missing_person_list = {
     '1': {
         'id': '1',
         "date_missing": "10/30/2009",
@@ -199,7 +199,7 @@ missing_persons_list = {
 
 def indexPageView(request):
     context = {
-        "missings_persons": missing_persons_list.values
+        "missing_persons": missing_person_list.values()
     }
     return render(request, 'newapp/index.html', context)
 
@@ -208,14 +208,14 @@ def aboutPageView(request):
     return render(request, "newapp/about.html")
 
 
-def missing_personsPageView(request, missing_persons_id):
+def missing_personsPageView(request, missing_person_id):
     # find a missing person from the missing persons id
-    missing_persons = missing_persons_list[missing_persons_id]
+    missing_person = missing_person_list[missing_person_id]
 
     # create a context dictionary
     context = {
-        "missing_persons": missing_persons
+        "missing_person": missing_person
     }
 
     # render out html template
-    return render(request, "newapp/missing_persons.html", context)
+    return render(request, "newapp/missing_person.html", context)
