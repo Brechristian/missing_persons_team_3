@@ -19,12 +19,15 @@
       <div class="row">
         {% for missing_person in missing_persons %}
         <div class="col">
-          <div class="card" style="width: 18rem">
+          <div class="card" style="width: 18rem; margin-top: 40px">
             <div class="card -body">
-              <h5 class="card-title">
+              <h5
+                class="card-title"
+                style="text-align: center; font-size: 24px"
+              >
                 {{ missing_person.first_name }} {{ missing_person.last_name}}
               </h5>
-              <p class="card-text">
+              <p class="card-text" style="text-align: center">
                 Date Missing: {{ missing_person.date_missing }}
               </p>
               <a
