@@ -6,3 +6,4 @@
 # Coleman: 2
 # Jeremy: 1
 # Sawyer: 0.5
+# Mckay: 0.5
