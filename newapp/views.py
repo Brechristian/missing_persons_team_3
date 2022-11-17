@@ -1,6 +1,7 @@
 from django.shortcuts import render
 
 # Create your views here.
+# All of the information below is what's making the data work. This is where we initially inserted all the info about our missing persons.
 
 missing_person_list = {
     '1': {
