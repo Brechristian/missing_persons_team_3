@@ -5,6 +5,6 @@
 # Christian: 5
 # Coleman: 2
 # Jeremy: 1
-# Sawyer: 0.5
+# Sawyer: 2
 # Mckay: 0.5
 # Andres: 2.5
