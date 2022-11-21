@@ -3,5 +3,14 @@
 {% block content %}
     </h2>Missing person info:</h2>
     <h3>{{ missing_person.first_name }} {{missing_person.last_name}}</h3>
+    <p>
+      {{ missing_person.first_name }} {{missing_person.last_name}} is a 
+      {% if missing_person.gender == "F" %} Female. She 
+      {% else %} Male. He
+      {% endif %}
+      has been missing since {{missing_person.date_missing}}
+      . At that time, they were {{missing_person.age_at_missing}}
+       years old. 
+    </p>
     <!-- the two lines above is what displays the names of our missing people -->
 {% endblock %}
