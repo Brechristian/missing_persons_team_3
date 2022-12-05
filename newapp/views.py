@@ -208,6 +208,8 @@ def indexPageView(request):
 def aboutPageView(request):
     return render(request, "newapp/about.html")
 
+def searchPageView(request):
+    return 
 
 def missing_personsPageView(request, missing_person_id):
     # find a missing person from the missing persons id
