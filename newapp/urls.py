@@ -5,6 +5,7 @@ urlpatterns = [
     path('', indexPageView, name='index'),
     path('about/', aboutPageView, name='about'),
     path('search/', searchPageView, name='search'),
+    # path('searchNames/', searchNames, name='search_names'),
     path('missingperson/<missing_person_id>/',
          missing_personsPageView, name='missing_person_details'),
 ]

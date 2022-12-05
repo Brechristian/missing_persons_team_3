@@ -1,8 +1,33 @@
-{%extend 'base.html'%} {% load static%} {% block content %}
+{%extends 'base.html'%} {% block content %}
 
-<h1>Search Missing People</h1>
+<h1>Search Missing Person</h1>
 <form method="get">
   <label for="name">Name</label>
   <input type="text" id="name" name="name" />
   <button type="submit" class="btn btn-primary">Search</button>
 </form>
+
+{% comment %} {% if names|length==0 %}
+<p>Name not found</p>
+{% else %} {% endcomment %} {% comment %}
+<p>{{names}}</p>
+{% endcomment %} {% for missing_person in missing_persons %}
+<div class="col">
+  <div class="card" style="width: 18rem; margin-top: 40px">
+    <!-- changing the numbers in the line above ^^ would change how the boxes holding informaiton would look, width, and height-->
+    <div class="card -body">
+      <h5 class="card-title" style="text-align: center; font-size: 24px">
+        {{ missing_person.first_name }} {{ missing_person.last_name}}
+      </h5>
+      <p class="card-text" style="text-align: center">
+        Date Missing: {{ missing_person.date_missing }}
+      </p>
+      <a
+        href="{% url 'missing_person_details' missing_person_id=missing_person.id %}"
+        class="btn btn-primary"
+        >More Info</a
+      >
+    </div>
+  </div>
+</div>
+{% endfor %} {% comment %} {% endif%} {% endcomment %} {% endblock %}

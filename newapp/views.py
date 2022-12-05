@@ -1,4 +1,5 @@
 from django.shortcuts import render
+from .models import missing_person
 
 # Create your views here.
 # All of the information below is what's making the data work. This is where we initially inserted all the info about our missing persons.
@@ -209,7 +210,15 @@ def aboutPageView(request):
     return render(request, "newapp/about.html")
 
 def searchPageView(request):
-    return 
+    try:
+        name = request.GET['name']
+        names = missing_person.objects.filter(first_name=name)
+    except:
+        names = missing_person.objects.all()
+    context = {
+        'names': names
+    }
+    return render(request, "newapp/search.html", context)
 
 def missing_personsPageView(request, missing_person_id):
     # find a missing person from the missing persons id
