@@ -1,12 +1,12 @@
 {% extends 'base.html' %}
 {%load static%}
 {% block content %}
-    </h2>Missing person info:</h2>
+    </h2>Missing Person Info:</h2>
     <h3>{{ missing_person.first_name }} {{missing_person.last_name}}</h3>
     <p>
       {{ missing_person.first_name }} {{missing_person.last_name}} is a 
-      {% if missing_person.gender == "F" %} Female. She 
-      {% else %} Male. He
+      {% if missing_person.gender == "F" %} female. She 
+      {% else %} male. He
       {% endif %}
       has been missing since {{missing_person.date_missing}}
       . At that time, they were {{missing_person.age_at_missing}}

@@ -2,9 +2,9 @@
 #              learn about and engage with combatting human trafficking.
 # Authors: Christian Breshears, Coleman Shuldberg, Jeremy Abbott, Sawyer Evans, Andres Nino
 # Hours worked per group member:
-# Christian: 5
+# Christian: 6
 # Coleman: 2
-# Jeremy: 1
+# Jeremy: 5.5
 # Sawyer: 2
 # Mckay: 0.5
-# Andres: 2.5
+# Andres: 3.5

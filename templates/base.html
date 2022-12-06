@@ -13,16 +13,29 @@
     />
     <title>Utah Missing Persons</title>
   </head>
-  <body>
-    <div class="container">
-      <div class="col">
-        <h1 style="text-align: center">Utah Missing Persons</h1>
-        <div style="text-align: center">
-          <a href="{% url 'index' %}">Home</a> |
-          <a href="{% url 'about' %}">Info</a>
-        </div>
-      </div>
-      {%block content %}
-      {%endblock%}
+  <body style="background-color: #f6f3ee">
+    <nav
+      class="navbar navbar-expand-sm bg-primary navbar-dark shadow"
+      style="text-align: right"
+    >
+      <ul class="navbar-nav ms-auto">
+        <li class="nav-item active">
+          <a class="nav-link" href="{% url 'index' %}">Home</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" href="{% url 'about' %}">Info</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" href="{% url 'search' %}">Search</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" href="{% url 'add' %}">Add Person</a>
+        </li>
+      </ul>
+    </nav>
+    <div class="col">
+      <h1 style="text-align: center">Utah Missing Persons</h1>
+    </div>
+    {%block content %} {%endblock%}
   </body>
 </html>
