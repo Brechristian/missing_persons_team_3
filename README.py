@@ -4,7 +4,7 @@
 # Hours worked per group member:
 # Christian: 6
 # Coleman: 2
-# Jeremy: 4.5
+# Jeremy: 5.5
 # Sawyer: 2
 # Mckay: 0.5
 # Andres: 3.5

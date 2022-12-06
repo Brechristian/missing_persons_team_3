@@ -1,4 +1,4 @@
-from django.shortcuts import render
+from django.shortcuts import render, redirect
 from .models import missing_person
 
 # Create your views here.
@@ -211,14 +211,29 @@ def aboutPageView(request):
 
 def searchPageView(request):
     try:
-        name = request.GET['name']
+        name = request.GET['first_name']
         names = missing_person.objects.filter(first_name=name)
     except:
-        names = missing_person.objects.all()
+        names = missing_person.objects.values()
     context = {
         'names': names
     }
     return render(request, "newapp/search.html", context)
+
+def addPageView(request):
+    if request.method == 'POST':
+        first_name = request.POST['first_name']
+        last_name = request.POST['last_name']
+        date_missing = request.POST['date_missing']
+        new_person = missing_person()
+        new_person.first_name = first_name
+        new_person.last_name = last_name
+        new_person.date_missing = date_missing
+        new_person.save()
+        return redirect('index')
+    else:
+        people = missing_person.objects.all
+        return render(request, "newapp/addperson.html")
 
 def missing_personsPageView(request, missing_person_id):
     # find a missing person from the missing persons id
