@@ -1,7 +1,29 @@
 {% extends 'base.html' %}
 {%load static%}
 {% block content %}
-    </h2>Missing Person Info:</h2>
+<br>
+<div class="card text-center">
+  <div class="card-header">
+    Missing Person Info:
+  </div>
+  <div class="card-body">
+    <h5 class="card-title">{{ missing_person.first_name }} {{ missing_person.last_name }}</h5>
+    <p class="card-text">
+      {{ missing_person.first_name }} {{ missing_person.last_name }} is a 
+      {% if missing_person.gender == "F" %} female. She 
+      {% else %} male. He
+      {% endif %}
+      has been missing since {{ missing_person.date_missing }}
+      . At that time, they were {{ missing_person.age_at_missing }}
+       years old. 
+    </p>
+    <a href="{% url 'index' %}" class="btn btn-primary">Back to Home Page</a>
+  </div>
+</div>  
+{% endblock %}  
+
+
+</h2>Missing Person Info:</h2>
     <h3>{{ missing_person.first_name }} {{ missing_person.last_name }}</h3>
     <p>
       {{ missing_person.first_name }} {{ missing_person.last_name }} is a 
@@ -13,4 +35,3 @@
        years old. 
     </p>
     <!-- the two lines above is what displays the names of our missing people -->
-{% endblock %}
