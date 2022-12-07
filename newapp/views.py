@@ -200,8 +200,10 @@ missing_person_list = {
 
 
 def indexPageView(request):
+    db_missing_persons = missing_person.objects.all()
+
     context = {
-        "missing_persons": missing_person_list.values()
+        "missing_persons": db_missing_persons
     }
     return render(request, 'newapp/index.html', context)
 
