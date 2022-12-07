@@ -223,19 +223,25 @@ def searchPageView(request):
 
 
 def addPageView(request):
-    if request.method == 'POST':
+    if request.method == "POST":
         # Add new missing person
         first_name = request.POST['first_name']
         last_name = request.POST['last_name']
         date_missing = request.POST['date_missing']
+        # missing_person_id = request.POST['last_name']
         # Get first name, last name, date missing
 
+        # create new missing person
         new_person = missing_person()
         new_person.first_name = first_name
         new_person.last_name = last_name
         new_person.date_missing = date_missing
+
+        # test = missing_person.objects.get(id=missing_person_id)
+        # new_person = test
         new_person.save()
         return redirect('index')
+
     else:
         people = missing_person.objects.all()
 
