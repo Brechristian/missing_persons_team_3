@@ -255,11 +255,11 @@ def addPageView(request):
 
 def missing_personsPageView(request, missing_person_id):
     # find a missing person from the missing persons id
-    missing_person = missing_person_list[missing_person_id]
+    db_missing_persons = missing_person.objects.get(id=missing_person_id)
 
     # create a context dictionary
     context = {
-        "missing_person": missing_person
+        "missing_person": db_missing_persons
     }
 
     # render out html template
