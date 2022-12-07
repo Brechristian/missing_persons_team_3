@@ -209,6 +209,7 @@ def indexPageView(request):
 def aboutPageView(request):
     return render(request, "newapp/about.html")
 
+
 def searchPageView(request):
     try:
         name = request.GET['first_name']
@@ -220,11 +221,15 @@ def searchPageView(request):
     }
     return render(request, "newapp/search.html", context)
 
+
 def addPageView(request):
     if request.method == 'POST':
+        # Add new missing person
         first_name = request.POST['first_name']
         last_name = request.POST['last_name']
         date_missing = request.POST['date_missing']
+        # Get first name, last name, date missing
+
         new_person = missing_person()
         new_person.first_name = first_name
         new_person.last_name = last_name
@@ -232,8 +237,13 @@ def addPageView(request):
         new_person.save()
         return redirect('index')
     else:
-        people = missing_person.objects.all
-        return render(request, "newapp/addperson.html")
+        people = missing_person.objects.all()
+
+        context = {
+            "people": people
+        }
+        return render(request, "newapp/addperson.html", context)
+
 
 def missing_personsPageView(request, missing_person_id):
     # find a missing person from the missing persons id

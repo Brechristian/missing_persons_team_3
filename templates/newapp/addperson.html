@@ -1,5 +1,6 @@
 {% extends 'base.html' %} {% block content%}
 <h1>Add person</h1>
+<p>Add Person</p>
 <form method="post">
   {%csrf_token%}
   <label for="first_name">First Name</label>
@@ -13,7 +14,7 @@
   <label for="date_missing">Date Missing</label>
   <input type="text" name="date_missing" id="date_missing" />
   <br />
-  <br />
+
   <button type="submit" class="btn btn-primary">Add Person</button>
 </form>
 {% endblock%}
