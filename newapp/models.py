@@ -14,6 +14,7 @@ class missing_person(models.Model):
     state = models.CharField(max_length=2, null=True, blank=True)
     gender = models.CharField(max_length=1, null=True, blank=True)
     race = models.CharField(max_length=1, null=True, blank=True)
+    id = models.IntegerField
 
     def __str__(self):
         return self.first_name, self.last_name
