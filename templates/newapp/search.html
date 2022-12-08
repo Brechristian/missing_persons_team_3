@@ -1,18 +1,23 @@
-{%extends 'base.html'%} 
-{% block content %}
+{%extends 'base.html'%} {% block content %}
 
-  <h1>Search Missing Person</h1>
-  <form method="get"> 
-    <label for="name">Name</label>
-    <input type="text" id="name" name="name" />
-   <button type="submit" class="btn btn-primary">Search</button>
-  </form>
-  {% if first_name|length == 0  %}
-  <p>No names found</p>
-  {% else %}
-  <p>{{ names }}</p>
-  {% endif %}
+<h1 style="margin-left: 100px">Search Missing Person</h1>
+<form method="get" style="margin-left: 100px">
+  <label for="name">Name</label>
+  <input type="text" id="name" name="name" />
+  <button type="submit" class="btn btn-primary">Search</button>
+</form>
 
-
-
-{% endblock %}
+{% if names|length == 0 %}
+<p style="margin-left: 100px">No names found</p>
+{% else %} {% for name in names %}
+<div class="col" style="margin-left: 100px">
+  <div class="card mb-4" style="width: 18rem">
+    <div class="card-body">
+      <h5 class="card-title">{{ name.first_name }}</h5>
+      <p class="card-text">By: {{ name.date_missing }}</p>
+      <p>{{ name.last_name }}</p>
+      <a href="{% url 'index' %}" class="btn btn-primary">Learn More</a>
+    </div>
+  </div>
+</div>
+{% endfor %} {% endif %} {% endblock %}

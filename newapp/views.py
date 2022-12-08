@@ -216,34 +216,16 @@ def aboutPageView(request):
 def searchPageView(request):
 
     try:
-        name = request.GET['name']
+        namesearch = request.GET['name']
 
-        names = missing_person.objects.filter(first_name=name)
+        names = missing_person.objects.filter(first_name=namesearch)
     except:
         names = missing_person.objects.all()
 
     context = {
         'names': names
     }
- #   try:
- #       name = request.GET['first_name']
- #       names = missing_person.objects.filter(first_name=name)
- #   except:
- #       names = missing_person.objects.values()
- #  context = {
- #       'names': names
- #   }
  
-    return render(request, "newapp/search.html", context)
-
-def searchNames(request):
-    name = request.GET['name']
-
-    names = missing_person.objects.filter(first_name=name)
-
-    context = {
-        'names': names
-    }
     return render(request, "newapp/search.html", context)
 
 
