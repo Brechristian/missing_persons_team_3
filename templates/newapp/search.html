@@ -13,10 +13,13 @@
 <div class="col" style="margin-left: 100px">
   <div class="card mb-4" style="width: 18rem">
     <div class="card-body">
-      <h5 class="card-title">{{ name.first_name }}</h5>
-      <p class="card-text">By: {{ name.date_missing }}</p>
-      <p>{{ name.last_name }}</p>
-      <a href="{% url 'index' %}" class="btn btn-primary">Learn More</a>
+      <h5 class="card-title">{{ name.first_name }} {{ name.last_name }}</h5>
+      <p class="card-text">Date missing: {{ name.date_missing }}</p>
+      <a
+        href="{% url 'missing_person_details' missing_person_id=name.id %}"
+        class="btn btn-primary"
+        >Learn More</a
+      >
     </div>
   </div>
 </div>
