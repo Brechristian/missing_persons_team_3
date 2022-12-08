@@ -3,7 +3,7 @@
 # Authors: Christian Breshears, Coleman Shuldberg, Jeremy Abbott, Sawyer Evans, Andres Nino
 # Hours worked per group member:
 # Christian: 8
-# Coleman: 5
+# Coleman: 7
 # Jeremy: 5.5
 # Sawyer: 2
 # Mckay: 0.5
